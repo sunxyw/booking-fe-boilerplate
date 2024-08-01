@@ -22,7 +22,7 @@ This is a boilerplate for a booking frontend application. This README is still a
 
 - [ ] **i18n platform**: local json
 - [x] **form building**: Mantine Form
-- [ ] **commit style**: conventional `fix(api): fix wrong calculation of request body checksum` https://www.conventionalcommits.org/en/v1.0.0/
+- [x] **commit style**: conventional `fix(api): fix wrong calculation of request body checksum` https://www.conventionalcommits.org/en/v1.0.0/
 - [ ] **error monitoring**: sentry? same as backend?
 - [ ] **log management**: selfhost? graylog? datadog? same as backend?
 - [ ] **request library**: ofetch https://github.com/unjs/ofetch
@@ -31,7 +31,7 @@ This is a boilerplate for a booking frontend application. This README is still a
 - [ ] semantic release
 - [x] husky
 - [x] lint-staged
-- [ ] commitlint
+- [x] commitlint
 - [ ] commitizen
 - [x] bundler analyzer
 
