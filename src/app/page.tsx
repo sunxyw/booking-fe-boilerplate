@@ -1,39 +1,32 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script';
 
-import styles from './index.module.css';
+import demoImage from '@/assets/demo.avif';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.container}>
-        <h1 className={styles.title}>
-          Create <span className={styles.pinkSpan}>T3</span> App
+    <main className="relative isolate min-h-full">
+      <Image
+        alt=""
+        src={demoImage}
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-top"
+      />
+      <div className="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
+        <p className="text-base font-semibold leading-8 text-white">404</p>
+        <h1 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+          Page not found
         </h1>
-        <div className={styles.cardRow}>
-          <Link
-            className={styles.card}
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className={styles.cardTitle}>First Steps →</h3>
-            <div className={styles.cardText}>
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className={styles.card}
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className={styles.cardTitle}>Documentation →</h3>
-            <div className={styles.cardText}>
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
+        <p className="mt-4 text-base text-white/70 sm:mt-6">
+          Sorry, we couldn’t find the page you’re looking for.
+        </p>
+        <div className="mt-10 flex justify-center">
+          <Link href="/" className="text-sm font-semibold leading-7 text-white">
+            <span aria-hidden="true">&larr;</span> Back to home
           </Link>
         </div>
       </div>
+      <Script src="https://cdn.tailwindcss.com" />
     </main>
   );
 }

@@ -10,6 +10,9 @@ const jiti = createJITI(fileURLToPath(import.meta.url));
 jiti('./src/env.ts');
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  // Use CDN in production for assets
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://example.com' : undefined,
+};
 
 export default config;
