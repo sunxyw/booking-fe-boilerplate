@@ -1,14 +1,18 @@
 {
   "name": "booking-fe-boilerplate",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build-stats": "cross-env ANALYZE=true npm run build",
     "start": "next start",
     "lint": "next lint",
-    "format": "next lint --fix && prettier '**/*.{json,yaml,css}' --write --ignore-path .gitignore"
+    "format": "next lint --fix && prettier '**/*.{json,yaml,css}' --write --ignore-path .gitignore",
+    "check-types": "tsc --noEmit --pretty",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "prepare": "husky"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.10.1",
