@@ -1,0 +1,31 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "Node.js & TypeScript",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "npm run install",
+  "postAttachCommand": "npm run dev",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "mikestead.dotenv",
+        "csstools.postcss",
+        "vitest.explorer",
+        "humao.rest-client",
+        "yoavbls.pretty-ts-errors",
+        "ms-playwright.playwright",
+        "github.vscode-github-actions",
+        "ms-vscode-remote.remote-containers"
+      ]
+    }
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "forwardPorts": [3000]
+}
