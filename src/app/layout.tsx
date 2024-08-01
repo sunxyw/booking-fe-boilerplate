@@ -1,5 +1,7 @@
+import '@mantine/core/styles.css';
 import '@/styles/globals.css';
 
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,10 +12,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
+  // noinspection HtmlRequiredTitleElement
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider>{children}</MantineProvider>
+      </body>
     </html>
   );
 }
