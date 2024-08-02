@@ -1,20 +1,18 @@
 import '@mantine/core/styles.css';
 import '@/styles/globals.css';
 
-import { ColorSchemeScript, createTheme, MantineProvider } from '@mantine/core';
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { type Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+
+import { theme } from '@/styles/theme';
 
 export const metadata: Metadata = {
   title: 'Boilerplate',
   description: 'Just another boilerplate.',
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
 };
-
-const theme = createTheme({
-  /** Put your mantine theme override here */
-});
 
 export default async function RootLayout(props: {
   children: React.ReactNode;

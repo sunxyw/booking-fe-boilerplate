@@ -12,18 +12,19 @@ This is a boilerplate for a booking frontend application. This README is still a
   - Feather
   - Find more: https://icones.js.org
 - [ ] **Map**: GoogleMap
-- [ ] **i18n**: next-intl
-- [ ] **validation**: zod https://zod.dev
+- [x] **i18n**: next-intl
+- [x] **validation**: zod https://zod.dev
 - [x] **linting tool**: eslint + prettier
 - [x] **linting style**: airbnb https://github.com/airbnb/javascript?tab=readme-ov-file
 - [ ] **query management**: tanstack query
 - [ ] **preview platform**: vercel
 
 
-- [ ] **i18n platform**: local json
+- [x] **i18n platform**: local json
 - [x] **form building**: Mantine Form
 - [x] **commit style**: conventional `fix(api): fix wrong calculation of request body checksum` https://www.conventionalcommits.org/en/v1.0.0/
 - [ ] **error monitoring**: sentry? same as backend?
+- [ ] **logging tool**: pino.js
 - [ ] **log management**: selfhost? graylog? datadog? same as backend?
 - [ ] **request library**: ofetch https://github.com/unjs/ofetch
 - [x] **UI custom**: css modules
