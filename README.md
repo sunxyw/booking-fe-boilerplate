@@ -2,6 +2,11 @@
 
 This is a boilerplate for a booking frontend application. This README is still a work in progress.
 
+# Environment Variables
+We store environment variables in the following places:
+- `.env` as an example and description of variables, publicly accessible, contains only default values
+- `.env.local` for local development, not committed, may contains sensitive information
+
 # TODO
 - [x] **Framework**: Next.js 14 (with TypeScript)
 - [x] **UI**: Mantine (Figma: https://www.figma.com/community/file/1293978471602433537/pretine-the-mantine-ui-kit-library-v7)
