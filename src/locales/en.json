@@ -1,0 +1,10 @@
+{
+  "HomePage": {
+    "title": {
+      "start": "Automated AI",
+      "highlight": "code reviews",
+      "end": "for any stack"
+    },
+    "description": "Build more reliable software with AI companion. AI is also trained to detect lazy developers who do nothing and just complain on Twitter."
+  }
+}
