@@ -1,12 +1,15 @@
 import '@mantine/core/styles.css';
 import '@/styles/globals.css';
 
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { ColorSchemeScript } from '@mantine/core';
 import { type Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 
-import { theme } from '@/styles/theme';
+import ClientProviders from '@/app/[locale]/clientProviders';
+import ServerProviders from '@/app/[locale]/serverProviders';
+import { AppConfig } from '@/config/AppConfig';
 
 export const metadata: Metadata = {
   title: 'Boilerplate',
@@ -14,23 +17,38 @@ export const metadata: Metadata = {
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
 };
 
-export default async function RootLayout(props: {
+export default async function RootLayout({
+  children,
+  params,
+}: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  unstable_setRequestLocale(props.params.locale);
+  if (!AppConfig.locales.includes(params.locale)) {
+    notFound();
+  }
+
+  unstable_setRequestLocale(params.locale);
   const messages = await getMessages();
 
   return (
-    <html lang={props.params.locale}>
+    <html lang={params.locale}>
       <head>
         <ColorSchemeScript />
       </head>
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <MantineProvider theme={theme}>{props.children}</MantineProvider>
-        </NextIntlClientProvider>
+        <ServerProviders>
+          <ClientProviders>
+            <NextIntlClientProvider messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </ClientProviders>
+        </ServerProviders>
       </body>
     </html>
   );
+}
+
+export function generateStaticParams() {
+  return AppConfig.locales.map((locale) => ({ locale }));
 }

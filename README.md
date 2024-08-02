@@ -31,7 +31,7 @@ We store environment variables in the following places:
 - [ ] **error monitoring**: sentry? same as backend?
 - [ ] **logging tool**: pino.js
 - [ ] **log management**: selfhost? graylog? datadog? same as backend?
-- [ ] **request library**: ofetch https://github.com/unjs/ofetch
+- [x] **request library**: ofetch https://github.com/unjs/ofetch
 - [x] **UI custom**: css modules
 
 - [ ] semantic release
