@@ -11,7 +11,7 @@ This is a boilerplate for a booking frontend application. This README is still a
   - FontAwesome
   - Feather
   - Find more: https://icones.js.org
-- [ ] **Map**: GoogleMap
+- [x] **Map**: GoogleMap
 - [x] **i18n**: next-intl
 - [x] **validation**: zod https://zod.dev
 - [x] **linting tool**: eslint + prettier
