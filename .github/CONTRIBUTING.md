@@ -16,12 +16,13 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 
 - [I Have a Question](#i-have-a-question)
 - [I Want To Contribute](#i-want-to-contribute)
-- [Reporting Bugs](#reporting-bugs)
-- [Suggesting Enhancements](#suggesting-enhancements)
-- [Your First Code Contribution](#your-first-code-contribution)
-- [Improving The Documentation](#improving-the-documentation)
+  - [Reporting Bugs](#reporting-bugs)
+  - [Suggesting Enhancements](#suggesting-enhancements)
+  - [Your First Code Contribution](#your-first-code-contribution)
+  - [Improving The Documentation](#improving-the-documentation)
 - [Styleguides](#styleguides)
-- [Commit Messages](#commit-messages)
+  - [Code Styles](#code-styles)
+  - [Commit Messages](#commit-messages)
 - [Join The Project Team](#join-the-project-team)
 
 
@@ -130,18 +131,21 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/sunxyw
 include Setup of env, IDE and typical getting started instructions?
 
 -->
+The guide is still awaiting preparation. If you need assistance, please contact our maintainers team directly.
 
 ### Improving The Documentation
 <!-- TODO
 Updating, improving and correcting the documentation
 
 -->
+We welcome all contributions to improve the documentation, please feel free to open an issue or pull request.
 
 ## Styleguides
-### Commit Messages
-<!-- TODO
+### Code Styles
+The code style of this project is largely inspired by the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) and the prevailing conventions in the industry. We recommend that you refer to `.eslintrc.json` in the root directory for detailed style requirements. You can also use `npm run format` to format the code.
 
--->
+### Commit Messages
+We force the entire project to adopt the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification for writing commit messages. Please understand that PRs containing non-conventional commits will not be accepted.
 
 ## Join The Project Team
-<!-- TODO -->
+If you would like to join our core team, please contact us. We are an enthusiastic and inclusive team and would welcome you to join us.

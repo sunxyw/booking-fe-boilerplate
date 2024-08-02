@@ -1,5 +1,4 @@
 # Booking FE Boilerplate
-
 This is a boilerplate for a booking frontend application. This README is still a work in progress.
 
 # Environment Variables
@@ -7,7 +6,7 @@ We store environment variables in the following places:
 - `.env` as an example and description of variables, publicly accessible, contains only default values
 - `.env.local` for local development, not committed, may contains sensitive information
 
-# TODO
+# Libraries Included
 - [x] **Framework**: Next.js 14 (with TypeScript)
 - [x] **UI**: Mantine (Figma: https://www.figma.com/community/file/1293978471602433537/pretine-the-mantine-ui-kit-library-v7)
 - [ ] **Icon**: decide by ui team
@@ -21,7 +20,7 @@ We store environment variables in the following places:
 - [x] **validation**: zod https://zod.dev
 - [x] **linting tool**: eslint + prettier
 - [x] **linting style**: airbnb https://github.com/airbnb/javascript?tab=readme-ov-file
-- [ ] **query management**: tanstack query
+- [x] **query management**: tanstack query
 - [ ] **preview platform**: vercel
 
 
@@ -50,5 +49,5 @@ We store environment variables in the following places:
 ~~**rich text editor**: tiptap (with mantine)? lexical? we might not need~~ 
 ~~**state management**: may not need, add when need~~
 
-
-and more?
+# Contributing
+Please check the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
