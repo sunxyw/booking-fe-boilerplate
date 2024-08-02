@@ -21,6 +21,9 @@
     "moduleResolution": "Bundler",
     "jsx": "preserve",
     "plugins": [{ "name": "next" }],
+
+    /* Type Checking */
+    "types": ["vitest/globals"],
     "incremental": true,
 
     /* Path Aliases */
@@ -30,13 +33,13 @@
     }
   },
   "include": [
-    ".eslintrc.cjs",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
     "**/*.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "**/*.mts"
   ],
   "exclude": ["node_modules"]
 }
