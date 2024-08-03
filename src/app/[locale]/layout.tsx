@@ -10,6 +10,7 @@ import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 import ClientProviders from '@/app/[locale]/clientProviders';
 import ServerProviders from '@/app/[locale]/serverProviders';
 import { AppConfig } from '@/config/AppConfig';
+import { isValidLocale } from '@/libs/i18n';
 
 export const metadata: Metadata = {
   title: 'Boilerplate',
@@ -24,7 +25,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  if (!AppConfig.locales.includes(params.locale)) {
+  if (!isValidLocale(params.locale)) {
     notFound();
   }
 

@@ -1,4 +1,5 @@
 import { AppConfig } from '@/config/AppConfig';
+import type { Locale } from '@/types/i18n-types';
 
 export const getAppUrl = () => {
   if (process.env.NEXT_PUBLIC_APP_URL) {
@@ -19,7 +20,7 @@ export const getAppUrl = () => {
   return 'http://localhost:3000';
 };
 
-export const getI18nPath = (url: string, locale: string) => {
+export const getI18nPath = (url: string, locale: Locale) => {
   if (locale === AppConfig.defaultLocale) {
     return url;
   }

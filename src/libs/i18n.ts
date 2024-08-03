@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
 
 import { AppConfig } from '@/config/AppConfig';
+import type { Locale } from '@/types/i18n-types';
 
 // NextJS Boilerplate uses Crowdin as the localization software.
 // As a developer, you only need to take care of the English (or another default language) version.
@@ -13,10 +14,15 @@ import { AppConfig } from '@/config/AppConfig';
 // 2. Run manually the workflow on GitHub Actions
 // 3. Every 24 hours at 5am, the workflow will run automatically
 
+export const isValidLocale = (locale: string): locale is Locale =>
+  AppConfig.locales.includes(locale as Locale);
+
 // Using internationalization in Server Components
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!AppConfig.locales.includes(locale)) notFound();
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
 
   return {
     messages: (await import(`../locales/${locale}.json`)).default,

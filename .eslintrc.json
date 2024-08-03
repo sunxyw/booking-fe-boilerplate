@@ -64,6 +64,28 @@
         "import/no-extraneous-dependencies": [
           "error",
           { "devDependencies": true }
+        ],
+        "no-restricted-imports": [
+          "error",
+          {
+            "name": "next/link",
+            "message": "Please import form `@/components/Link` instead."
+          },
+          {
+            "name": "@/libs/i18nNavigation",
+            "importNames": ["Link"],
+            "message": "Please import form `@/components/Link` instead."
+          },
+          {
+            "name": "next/navigation",
+            "importNames": [
+              "redirect",
+              "permanentRedirect",
+              "useRouter",
+              "usePathname"
+            ],
+            "message": "Please import form `@/libs/i18nNavigation` instead."
+          }
         ]
       }
     },

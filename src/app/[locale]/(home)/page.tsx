@@ -1,10 +1,14 @@
 import { Button, Container, Text, Title } from '@mantine/core';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
+import { Link } from '@/components/Link';
+import UserInfo from '@/components/UserInfo';
 import classes from '@/styles/home.module.css';
 
-export default function Home() {
+export default function Home({ params }: { params: { locale: string } }) {
+  unstable_setRequestLocale(params.locale);
+
   const t = useTranslations('HomePage');
 
   return (
@@ -22,14 +26,27 @@ export default function Home() {
           <Text size="lg" c="dimmed" className={classes.description}>
             {t('description')}
           </Text>
+          <UserInfo />
         </Container>
 
         <div className={classes.controls}>
-          <Button className={classes.control} size="lg">
-            <Link href="/zh-hk/home">Switch to Traditional Chinese</Link>
+          <Button
+            component={Link}
+            href="/"
+            locale="zh-hk"
+            className={classes.control}
+            size="lg"
+          >
+            Switch to Traditional Chinese
           </Button>
-          <Button className={classes.control} size="lg">
-            <Link href="/en/home">Switch to English</Link>
+          <Button
+            component={Link}
+            href="/"
+            locale="en"
+            className={classes.control}
+            size="lg"
+          >
+            Switch to English
           </Button>
         </div>
       </div>
