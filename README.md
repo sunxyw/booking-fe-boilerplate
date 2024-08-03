@@ -37,8 +37,10 @@ We store environment variables in the following places:
 - [x] husky
 - [x] lint-staged
 - [x] commitlint
-- [ ] commitizen
+- [x] commitizen
 - [x] bundler analyzer
+
+- [ ] add authentication demo
 
 ~~**unit test**: vitest? jest?~~
 ~~**integration&e2e test**: playwright?  puppeteer? selenium? cypress?~~
