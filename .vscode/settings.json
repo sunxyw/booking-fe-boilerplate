@@ -36,5 +36,8 @@
     "**/*.sass",
     "**/*.less",
     "node_modules/@mantine/core/styles.css"
-  ]
+  ],
+  "eslint.format.enable": true,
+  "i18n-ally.localesPaths": ["./src/locales"],
+  "i18n-ally.keystyle": "nested"
 }

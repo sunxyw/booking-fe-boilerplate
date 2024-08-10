@@ -13,11 +13,11 @@
         "mikestead.dotenv",
         "csstools.postcss",
         "vitest.explorer",
-        "humao.rest-client",
         "yoavbls.pretty-ts-errors",
         "ms-playwright.playwright",
         "github.vscode-github-actions",
-        "ms-vscode-remote.remote-containers"
+        "ms-vscode-remote.remote-containers",
+        "lokalise.i18n-ally"
       ]
     }
   },
