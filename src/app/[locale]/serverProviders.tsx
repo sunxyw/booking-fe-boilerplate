@@ -6,6 +6,6 @@ import { theme } from "@/styles/theme";
 
 export default function ServerProviders({
   children,
-}: PropsWithChildren<never>): React.ReactNode {
+}: PropsWithChildren): React.ReactNode {
   return <MantineProvider theme={theme}>{children}</MantineProvider>;
 }

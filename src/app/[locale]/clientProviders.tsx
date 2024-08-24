@@ -10,7 +10,7 @@ import { queryClient } from "@/libs/queryClient";
 
 export default function ClientProviders({
   children,
-}: PropsWithChildren<never>): React.ReactNode {
+}: PropsWithChildren): React.ReactNode {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
