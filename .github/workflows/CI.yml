@@ -24,8 +24,32 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
+      - uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-
       - run: pnpm install
       - run: pnpm build
+
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: "pnpm"
+      - run: pnpm install
+
+      - if: github.event_name == 'pull_request'
+        name: Validate all commits from PR
+        run: pnpx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+      - name: Lint & Format
+        run: pnpm biome ci .
+      - name: Type checking
+        run: pnpm check-types
 
   test:
     strategy:
@@ -45,21 +69,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
+      - uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-
       - run: pnpm install
 
       - name: Build Next.js for E2E tests
         if: false # TODO: Add E2E tests
         run: pnpm build
-
-      - if: github.event_name == 'pull_request'
-        name: Validate all commits from PR
-        run: pnpx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
-
-      - name: Linter
-        run: pnpm lint
-
-      - name: Type checking
-        run: pnpm check-types
 
       - name: Run unit tests
         if: false # TODO: Add unit tests
