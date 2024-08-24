@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import NextError from 'next/error';
+import NextError from "next/error";
 
 export default function GlobalError({
   error,
@@ -14,7 +14,7 @@ export default function GlobalError({
       <body>
         <NextError
           statusCode={500}
-          title={error.message || 'An unexpected error occurred'}
+          title={error.message || "An unexpected error occurred"}
         />
       </body>
     </html>

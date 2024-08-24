@@ -1,6 +1,6 @@
-import createMiddleware from 'next-intl/middleware';
+import createMiddleware from "next-intl/middleware";
 
-import { AppConfig } from '@/config/AppConfig';
+import { AppConfig } from "@/config/AppConfig";
 
 export default createMiddleware({
   // A list of all locales that are supported
@@ -21,6 +21,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
 };
