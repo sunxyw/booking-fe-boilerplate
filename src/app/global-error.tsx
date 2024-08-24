@@ -1,8 +1,11 @@
 "use client";
 
-import NextError from "next/error";
+import image from "@/assets/error/generic_error.svg";
+import UserFriendlyError from "@/components/UserFriendlyError";
+import { theme } from "@/styles/theme";
+import { MantineProvider } from "@mantine/core";
 
-export default function GlobalError({
+export default function GlobalErrorPage({
   error,
   params: { locale },
 }: {
@@ -12,10 +15,14 @@ export default function GlobalError({
   return (
     <html lang={locale}>
       <body>
-        <NextError
-          statusCode={500}
-          title={error.message || "An unexpected error occurred"}
-        />
+        <MantineProvider theme={theme}>
+          <UserFriendlyError
+            title={`Something bad just happened... (${error.digest})`}
+            message="Our servers could not handle your request. Don't worry, our development team was already notified. Try refreshing the page."
+            image={image}
+            allowRefresh
+          />
+        </MantineProvider>
       </body>
     </html>
   );

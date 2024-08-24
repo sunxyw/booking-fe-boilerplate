@@ -31,7 +31,17 @@
         "useArrayLiterals": "warn",
         "useHookAtTopLevel": "error"
       },
-      "nursery": {},
+      "nursery": {
+        "noRestrictedImports": {
+          "level": "error",
+          "options": {
+            "paths": {
+              "next/link": "Use `@/components/Link` instead.",
+              "next/image": "Use `@/components/Image` instead."
+            }
+          }
+        }
+      },
       "performance": {
         "noBarrelFile": "warn",
         "noReExportAll": "warn"

@@ -4,7 +4,7 @@
 // Due to the mechanism of how `Mantine` works, we need to wrap the `Link` component
 // and mark it as a client component. Therefore, we could pass `Link` as a prop to polymorphic components.
 
-// eslint-disable-next-line no-restricted-imports -- we need to import the original `Link` component
+// // biome-ignore lint/nursery/noRestrictedImports: we need to import the original `Link` component
 import { Link as RawI18nLink } from "@/libs/i18nNavigation";
 
 export const Link = (props: Parameters<typeof RawI18nLink>[0]) => {
