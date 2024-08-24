@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Button, Code, NumberInput, Text, TextInput } from '@mantine/core';
-import { useForm, zodResolver } from '@mantine/form';
-import { useState } from 'react';
-import { z } from 'zod';
+import { Button, Code, NumberInput, Text, TextInput } from "@mantine/core";
+import { useForm, zodResolver } from "@mantine/form";
+import { useState } from "react";
+import { z } from "zod";
 
 const formSchema = z.object({
   name: z.string().min(2),
@@ -13,8 +13,8 @@ const formSchema = z.object({
 
 export default function ExampleFormsPage() {
   const form = useForm({
-    mode: 'uncontrolled',
-    initialValues: { name: '', email: '', age: 13 },
+    mode: "uncontrolled",
+    initialValues: { name: "", email: "", age: 13 },
     validate: zodResolver(formSchema),
   });
 
@@ -25,21 +25,21 @@ export default function ExampleFormsPage() {
   return (
     <form onSubmit={form.onSubmit(setSubmittedValues)}>
       <TextInput
-        {...form.getInputProps('name')}
-        key={form.key('name')}
+        {...form.getInputProps("name")}
+        key={form.key("name")}
         label="Name"
         placeholder="Name"
       />
       <TextInput
-        {...form.getInputProps('email')}
-        key={form.key('email')}
+        {...form.getInputProps("email")}
+        key={form.key("email")}
         mt="md"
         label="Email"
         placeholder="Email"
       />
       <NumberInput
-        {...form.getInputProps('age')}
-        key={form.key('age')}
+        {...form.getInputProps("age")}
+        key={form.key("age")}
         mt="md"
         label="Age"
       />
@@ -49,7 +49,7 @@ export default function ExampleFormsPage() {
 
       <Text mt="md">Submitted values:</Text>
       <Code block>
-        {submittedValues ? JSON.stringify(submittedValues, null, 2) : '–'}
+        {submittedValues ? JSON.stringify(submittedValues, null, 2) : "–"}
       </Code>
     </form>
   );

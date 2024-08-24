@@ -1,14 +1,18 @@
-'use client';
+"use client";
 
-import { Map, useMap, useMapsLibrary } from '@vis.gl/react-google-maps';
-import { useEffect, useState } from 'react';
+import {
+  Map as GoogleMap,
+  useMap,
+  useMapsLibrary,
+} from "@vis.gl/react-google-maps";
+import { useEffect, useState } from "react";
 
 const STARTING_POINT = { lat: 22.3275946, lng: 114.1887265 };
 const ENDING_POINT = { lat: 22.3308781, lng: 114.1860671 };
 
 export default function ExampleMapsPage() {
   const map = useMap();
-  const routesLibrary = useMapsLibrary('routes');
+  const routesLibrary = useMapsLibrary("routes");
   const [directionsService, setDirectionsService] =
     useState<google.maps.DirectionsService>();
   const [directionsRenderer, setDirectionsRenderer] =
@@ -16,7 +20,9 @@ export default function ExampleMapsPage() {
 
   // Initialize directions service and renderer
   useEffect(() => {
-    if (!routesLibrary || !map) return;
+    if (!routesLibrary || !map) {
+      return;
+    }
     setDirectionsService(new routesLibrary.DirectionsService());
     setDirectionsRenderer(new routesLibrary.DirectionsRenderer({ map }));
   }, [routesLibrary, map]);
@@ -24,6 +30,7 @@ export default function ExampleMapsPage() {
   // Use directions service
   useEffect(() => {
     if (!directionsService || !directionsRenderer) {
+      // biome-ignore lint/suspicious/noEmptyBlockStatements: This is a placeholder for future code
       return () => {};
     }
 
@@ -43,12 +50,12 @@ export default function ExampleMapsPage() {
   }, [directionsService, directionsRenderer]);
 
   return (
-    <Map
+    <GoogleMap
       defaultZoom={14}
       defaultCenter={STARTING_POINT}
       gestureHandling="greedy"
       disableDefaultUI
-      style={{ width: '100%', height: '100vh' }}
+      style={{ width: "100%", height: "100vh" }}
     />
   );
 }

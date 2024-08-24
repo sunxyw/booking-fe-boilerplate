@@ -1,28 +1,29 @@
-import '@mantine/core/styles.css';
-import '@/styles/globals.css';
+import "@mantine/core/styles.css";
+import "@/styles/globals.css";
 
-import { ColorSchemeScript } from '@mantine/core';
-import { type Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import { ColorSchemeScript } from "@mantine/core";
+import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
 
-import ClientProviders from '@/app/[locale]/clientProviders';
-import ServerProviders from '@/app/[locale]/serverProviders';
-import { AppConfig } from '@/config/AppConfig';
-import { isValidLocale } from '@/libs/i18n';
+import ClientProviders from "@/app/[locale]/clientProviders";
+import ServerProviders from "@/app/[locale]/serverProviders";
+import { AppConfig } from "@/config/AppConfig";
+import { isValidLocale } from "@/libs/i18n";
 
 export const metadata: Metadata = {
-  title: 'Boilerplate',
-  description: 'Just another boilerplate.',
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  title: "Boilerplate",
+  description: "Just another boilerplate.",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default async function RootLayout({
   children,
   params,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   params: { locale: string };
 }) {
   if (!isValidLocale(params.locale)) {

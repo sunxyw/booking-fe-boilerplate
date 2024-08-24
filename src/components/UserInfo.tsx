@@ -1,7 +1,7 @@
-import { cookies } from 'next/headers';
+import { cookies } from "next/headers";
 
 export default function UserInfo() {
-  const value = cookies().get('user')?.value;
+  const value = cookies().get("user")?.value;
   if (!value) {
     return (
       <div>

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { APIProvider } from '@vis.gl/react-google-maps';
-import type { ReactNode } from 'react';
+import { APIProvider } from "@vis.gl/react-google-maps";
+import type { ReactNode } from "react";
 
-import { Env } from '@/config/Env';
+import { Env } from "@/config/Env";
 
 export default function ExampleMapsLayout({
   children,

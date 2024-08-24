@@ -1,0 +1,35 @@
+output:
+  - failure
+  - execution
+  - execution_out
+  - execution_info
+  - skips
+
+pre-commit:
+  commands:
+    check:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: pnpm biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true
+
+pre-push:
+  parallel: true
+  commands:
+    audit:
+      run: pnpm audit
+    check:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: pnpm biome check --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {push_files}
+
+commit-msg:
+  commands:
+    "lint commit message":
+      run: pnpm commitlint --edit {1}
+
+prepare-commit-msg:
+  commands:
+    commitzen:
+      interactive: true
+      run: pnpm cz
+      env:
+        LEFTHOOK: 0

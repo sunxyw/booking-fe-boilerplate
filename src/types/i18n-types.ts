@@ -1,3 +1,3 @@
-import type { AppConfig } from '@/config/AppConfig';
+import type { AppConfig } from "@/config/AppConfig";
 
 export type Locale = (typeof AppConfig.locales)[number];
