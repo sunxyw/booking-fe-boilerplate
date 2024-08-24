@@ -29,10 +29,10 @@ commit-msg:
     "lint commit message":
       run: pnpm commitlint --edit {1}
 
-prepare-commit-msg:
-  commands:
-    commitzen:
-      interactive: true
-      run: pnpm cz
-      env:
-        LEFTHOOK: 0
+# prepare-commit-msg:
+#   commands:
+#     commitzen:
+#       interactive: true
+#       run: pnpm cz
+#       env:
+#         LEFTHOOK: 0
