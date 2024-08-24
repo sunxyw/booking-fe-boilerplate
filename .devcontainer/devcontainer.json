@@ -2,14 +2,17 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "Node.js & TypeScript",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm run install",
-  "postAttachCommand": "npm run dev",
+  "postCreateCommand": "pnpm install --offline",
+  "updateContentCommand": "pnpm install",
+  "postAttachCommand": "pnpm dev",
   "customizations": {
     "vscode": {
       "extensions": [
-        "dbaeumer.vscode-eslint",
         "mikestead.dotenv",
         "csstools.postcss",
         "vitest.explorer",
@@ -17,7 +20,8 @@
         "ms-playwright.playwright",
         "github.vscode-github-actions",
         "ms-vscode-remote.remote-containers",
-        "lokalise.i18n-ally"
+        "lokalise.i18n-ally",
+        "biomejs.biome"
       ]
     }
   },

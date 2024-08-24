@@ -1,12 +1,12 @@
 {
   "recommendations": [
-    "dbaeumer.vscode-eslint",
     "mikestead.dotenv",
     "csstools.postcss",
     "vitest.explorer",
     "yoavbls.pretty-ts-errors",
     "ms-playwright.playwright",
     "github.vscode-github-actions",
-    "lokalise.i18n-ally"
+    "lokalise.i18n-ally",
+    "biomejs.biome"
   ]
 }

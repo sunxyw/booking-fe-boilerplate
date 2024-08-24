@@ -204,6 +204,9 @@ importers:
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
+      vite:
+        specifier: ^5.4.2
+        version: 5.4.2(@types/node@20.16.1)(sugarss@4.0.1(postcss@8.4.41))
       vite-tsconfig-paths:
         specifier: ^4.3.2
         version: 4.3.2(typescript@5.5.4)(vite@5.4.2(@types/node@20.16.1)(sugarss@4.0.1(postcss@8.4.41)))
