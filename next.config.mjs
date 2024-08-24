@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import bundleAnalyzer from "@next/bundle-analyzer";
 import createJiti from "jiti";
 import createNextIntlPlugin from "next-intl/plugin";
 
@@ -12,10 +13,14 @@ jiti("./src/config/Env.ts");
 
 const withNextIntl = createNextIntlPlugin("./src/libs/i18n.ts");
 
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
 /** @type {import("next").NextConfig} */
 const config = {
   // FIXME: Use CDN in production for assets
   // assetPrefix: process.env.NODE_ENV === 'production' ? 'https://example.com' : undefined,
 };
 
-export default withNextIntl(config);
+export default withBundleAnalyzer(withNextIntl(config));
