@@ -21,6 +21,10 @@ const withBundleAnalyzer = bundleAnalyzer({
 const config = {
   // FIXME: Use CDN in production for assets
   // assetPrefix: process.env.NODE_ENV === 'production' ? 'https://example.com' : undefined,
+
+  experimental: {
+    optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
+  },
 };
 
 export default withBundleAnalyzer(withNextIntl(config));
