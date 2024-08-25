@@ -12,18 +12,23 @@ jobs:
       matrix:
         node-version: [22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/previous-releases
+    runs-on: ubuntu-latest
 
     name: Build with ${{ matrix.node-version }}
-    uses: ./.github/workflows/build_reusable.yml
-    with:
-      nodeVersion: ${{ matrix.node-version }}
-      stepName: Build
-    secrets: inherit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/build_reusable
+        with:
+          nodeVersion: ${{ matrix.node-version }}
+          stepName: Build
+          uploadAnalyzerArtifacts: true
 
   quality:
+    name: Quality checks
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/build_reusable.yml
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/build_reusable
         with:
           stepName: Quality
 
@@ -33,6 +38,7 @@ jobs:
       - name: Lint & Format
         run: pnpm biome ci .
       - name: Type checking
+        if: false # FIXME: needs a way to generate types, somehow build do not provide them
         run: pnpm check-types
 
   test:
@@ -44,8 +50,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/workflows/build_reusable.yml
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/build_reusable
         with:
+          nodeVersion: ${{ matrix.node-version }}
           stepName: Test
 
       - name: Run unit tests

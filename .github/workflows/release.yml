@@ -19,6 +19,7 @@ jobs:
       id-token: write # to enable use of OIDC for npm provenance
 
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/build_reusable.yml
         with:
           stepName: Release

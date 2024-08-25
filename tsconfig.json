@@ -39,7 +39,8 @@
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "src/types/imports.d.ts"
   ],
   "exclude": ["node_modules"]
 }
