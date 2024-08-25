@@ -7,10 +7,10 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 
-import ClientProviders from "@/app/clientProviders";
-import ServerProviders from "@/app/serverProviders";
 import { AppConfig } from "@/config/AppConfig";
 import { isValidLocale } from "@/libs/i18n";
+import { ClientProviders } from "./clientProviders";
+import { ServerProviders } from "./serverProviders";
 
 export const metadata: Metadata = {
   title: "Boilerplate",

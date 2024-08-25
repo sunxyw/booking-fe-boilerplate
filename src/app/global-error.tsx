@@ -1,7 +1,7 @@
 "use client";
 
-import image from "@/assets/error/generic_error.svg";
-import UserFriendlyError from "@/components/UserFriendlyError";
+import errorImage from "@/assets/error/generic_error.svg";
+import { UserFriendlyError } from "@/components/UserFriendlyError";
 import { theme } from "@/styles/theme";
 import { MantineProvider } from "@mantine/core";
 
@@ -19,7 +19,7 @@ export default function GlobalErrorPage({
           <UserFriendlyError
             title={`Something bad just happened... (${error.digest})`}
             message="Our servers could not handle your request. Don't worry, our development team was already notified. Try refreshing the page."
-            image={image}
+            image={errorImage}
             allowRefresh
           />
         </MantineProvider>

@@ -11,12 +11,12 @@ interface UserFriendlyErrorProps {
   allowRefresh?: boolean;
 }
 
-export default function UserFriendlyError({
+export const UserFriendlyError = ({
   title,
   message,
   image,
   allowRefresh = false,
-}: UserFriendlyErrorProps) {
+}: UserFriendlyErrorProps) => {
   return (
     <Container className={classes.root}>
       <SimpleGrid spacing={{ base: 40, sm: 80 }} cols={{ base: 1, sm: 2 }}>
@@ -63,4 +63,4 @@ export default function UserFriendlyError({
       </SimpleGrid>
     </Container>
   );
-}
+};
