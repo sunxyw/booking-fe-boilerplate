@@ -21,6 +21,12 @@
   },
   "packageManager": "pnpm@9.8.0",
   "dependencies": {
+    "@fontsource-variable/lora": "^5.0.19",
+    "@fontsource-variable/noto-sans": "^5.0.5",
+    "@fontsource-variable/noto-sans-hk": "^5.0.7",
+    "@fontsource-variable/noto-sans-sc": "^5.0.7",
+    "@fontsource/lxgw-wenkai": "^5.0.2",
+    "@fontsource/lxgw-wenkai-tc": "^5.0.3",
     "@mantine/core": "^7.12.1",
     "@mantine/dates": "^7.12.1",
     "@mantine/form": "^7.12.1",

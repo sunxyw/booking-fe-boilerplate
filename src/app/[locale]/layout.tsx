@@ -1,6 +1,3 @@
-import "@mantine/core/styles.css";
-import "@/styles/globals.css";
-
 import { ColorSchemeScript } from "@mantine/core";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";

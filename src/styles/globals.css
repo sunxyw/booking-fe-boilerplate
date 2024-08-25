@@ -1,0 +1,33 @@
+/* 
+Font
+
+en:
+  Sans-serif: 'Noto Sans', sans-serif;
+  Serif: 'Lora', serif;
+
+zh-HK:
+  Sans-serif: 'Noto Sans HK', sans-serif;
+  Serif: 'LXGW WenKai TC', serif;
+
+zh-CN:
+  Sans-serif: 'Noto Sans SC', sans-serif;
+  Serif: 'LXGW WenKai', serif;
+ */
+
+html[lang="en"] {
+  --font-sans: "Noto Sans Variable";
+  --font-serif: "Lora";
+  --font-monospace: "Fira Code";
+}
+
+html[lang="zh-HK"] {
+  --font-sans: "Noto Sans HK Variable";
+  --font-serif: "LXGW WenKai TC";
+  --font-monospace: "Fira Code";
+}
+
+html[lang="zh-CN"] {
+  --font-sans: "Noto Sans SC Variable";
+  --font-serif: "LXGW WenKai";
+  --font-monospace: "Fira Code";
+}

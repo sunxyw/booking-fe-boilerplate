@@ -1,3 +1,6 @@
+import "@mantine/core/styles.css";
+import "@/styles/globals.css";
+
 import type { ReactNode } from "react";
 
 // Since we have a root `not-found.tsx` page, a layout file is required,

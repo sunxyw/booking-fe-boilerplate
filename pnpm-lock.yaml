@@ -8,6 +8,24 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/lora':
+        specifier: ^5.0.19
+        version: 5.0.19
+      '@fontsource-variable/noto-sans':
+        specifier: ^5.0.5
+        version: 5.0.5
+      '@fontsource-variable/noto-sans-hk':
+        specifier: ^5.0.7
+        version: 5.0.7
+      '@fontsource-variable/noto-sans-sc':
+        specifier: ^5.0.7
+        version: 5.0.7
+      '@fontsource/lxgw-wenkai':
+        specifier: ^5.0.2
+        version: 5.0.2
+      '@fontsource/lxgw-wenkai-tc':
+        specifier: ^5.0.3
+        version: 5.0.3
       '@mantine/core':
         specifier: ^7.12.1
         version: 7.12.1(@mantine/hooks@7.12.1(react@18.3.1))(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -578,6 +596,24 @@ packages:
 
   '@floating-ui/utils@0.2.7':
     resolution: {integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==}
+
+  '@fontsource-variable/lora@5.0.19':
+    resolution: {integrity: sha512-Nbg+iCCtdQrtvOI1GSwj8BuGTiPu8iY5KOVcUnHqLPoHy7o7/qzgSMaH9nfH9Mka+qxRzCn9+EdJbeTeFDajSQ==}
+
+  '@fontsource-variable/noto-sans-hk@5.0.7':
+    resolution: {integrity: sha512-4RdFpK4ggPstLgIDj2bO627yD2Vsity+yj+BVfI9p0CROfCX/sYWu5yVurP5Hck3ANzHdSkUcVwLhsREhXdiRA==}
+
+  '@fontsource-variable/noto-sans-sc@5.0.7':
+    resolution: {integrity: sha512-Bsp2O0QgJm9HnvY0dmCHnEq4+2NkNZ9iWYkj3afuDQIOL+2D5E07+jjYRWNWmW9DAXwIQG4NTqQrZ9OI5YsGVQ==}
+
+  '@fontsource-variable/noto-sans@5.0.5':
+    resolution: {integrity: sha512-SVixgckO4DIgvFJ+vTRZEj8vTvjZceuGOhKMgnETItKELl1tHzk+ZFatSTCofPJ1zjhTwqvHrHkFeCbUGiqaRg==}
+
+  '@fontsource/lxgw-wenkai-tc@5.0.3':
+    resolution: {integrity: sha512-I83XmGCnmFXbj861W2vR6OywayC68htHVd+vkbXREjFBPK+uL1IDcSINiofkZrVhdpaeM5kk+L5h/Ox16j7TbQ==}
+
+  '@fontsource/lxgw-wenkai@5.0.2':
+    resolution: {integrity: sha512-Hy4aHcjlfvEgwU9bNFgxbmEN8erP//qN4uP1BAsBwQXMQG7iI9bG+plert6Qvy1tsfMxhC/Oiqi4XLsEGV+cOA==}
 
   '@formatjs/ecma402-abstract@2.0.0':
     resolution: {integrity: sha512-rRqXOqdFmk7RYvj4khklyqzcfQl9vEL/usogncBHRZfZBDOwMGuSRNFl02fu5KGHXdbinju+YXyuR+Nk8xlr/g==}
@@ -3628,6 +3664,18 @@ snapshots:
       tabbable: 6.2.0
 
   '@floating-ui/utils@0.2.7': {}
+
+  '@fontsource-variable/lora@5.0.19': {}
+
+  '@fontsource-variable/noto-sans-hk@5.0.7': {}
+
+  '@fontsource-variable/noto-sans-sc@5.0.7': {}
+
+  '@fontsource-variable/noto-sans@5.0.5': {}
+
+  '@fontsource/lxgw-wenkai-tc@5.0.3': {}
+
+  '@fontsource/lxgw-wenkai@5.0.2': {}
 
   '@formatjs/ecma402-abstract@2.0.0':
     dependencies:
