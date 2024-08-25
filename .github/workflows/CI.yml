@@ -14,34 +14,18 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/previous-releases
 
     name: Build with ${{ matrix.node-version }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-      - uses: actions/cache@v4
-        with:
-          path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-          restore-keys: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-
-      - run: pnpm install
-      - run: pnpm build
+    uses: ./.github/workflows/build_reusable.yml
+    with:
+      nodeVersion: ${{ matrix.node-version }}
+      stepName: Build
+    secrets: inherit
 
   quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: ./.github/workflows/build_reusable.yml
         with:
-          node-version: 22.x
-          cache: "pnpm"
-      - run: pnpm install
+          stepName: Quality
 
       - if: github.event_name == 'pull_request'
         name: Validate all commits from PR
@@ -60,25 +44,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/build_reusable.yml
         with:
-          fetch-depth: 0 # Retrieve Git history, needed to verify commits
-      - uses: pnpm/action-setup@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-      - uses: actions/cache@v4
-        with:
-          path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-          restore-keys: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}-
-      - run: pnpm install
-
-      - name: Build Next.js for E2E tests
-        if: false # TODO: Add E2E tests
-        run: pnpm build
+          stepName: Test
 
       - name: Run unit tests
         if: false # TODO: Add unit tests

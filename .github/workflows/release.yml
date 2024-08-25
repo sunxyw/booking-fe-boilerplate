@@ -19,17 +19,9 @@ jobs:
       id-token: write # to enable use of OIDC for npm provenance
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/build_reusable.yml
         with:
-          fetch-depth: 0
-      - uses: pnpm/action-setup@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-      - run: pnpm install
-      - run: npm audit signatures # pnpm do not support audit signatures yet
+          stepName: Release
 
       - name: Release
         env:
