@@ -1,21 +1,53 @@
-import { Button, Container, SimpleGrid, Text, Title } from "@mantine/core";
+"use client";
+
+import {
+  Button,
+  type ButtonProps,
+  Container,
+  SimpleGrid,
+  Text,
+  Title,
+  createPolymorphicComponent,
+} from "@mantine/core";
 import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { type ReactNode, forwardRef } from "react";
 import { Image } from "./Image";
-import { Link } from "./Link";
 import classes from "./UserFriendlyError.module.css";
+
+interface UserFriendlyErrorControlProps extends ButtonProps {}
+
+export const UserFriendlyErrorControl = createPolymorphicComponent<
+  "button",
+  UserFriendlyErrorControlProps
+>(
+  forwardRef<HTMLButtonElement, UserFriendlyErrorControlProps>(
+    (props: UserFriendlyErrorControlProps, ref) => {
+      return (
+        <Button
+          ref={ref}
+          variant="outline"
+          size="md"
+          mt="xl"
+          className={classes.control}
+          {...props}
+        />
+      );
+    },
+  ),
+);
 
 interface UserFriendlyErrorProps {
   title: string;
   message: string;
   image: StaticImport;
-  allowRefresh?: boolean;
+  control?: ReactNode;
 }
 
 export const UserFriendlyError = ({
   title,
   message,
   image,
-  allowRefresh = false,
+  control,
 }: UserFriendlyErrorProps) => {
   return (
     <Container className={classes.root}>
@@ -31,28 +63,7 @@ export const UserFriendlyError = ({
           <Text c="dimmed" size="lg">
             {message}
           </Text>
-          {allowRefresh ? (
-            <Button
-              variant="outline"
-              size="md"
-              mt="xl"
-              className={classes.control}
-              onClick={() => window.location.reload()}
-            >
-              Refresh the page
-            </Button>
-          ) : (
-            <Button
-              component={Link}
-              href="/"
-              variant="outline"
-              size="md"
-              mt="xl"
-              className={classes.control}
-            >
-              Get back to home page
-            </Button>
-          )}
+          {control}
         </div>
         <Image
           src={image}

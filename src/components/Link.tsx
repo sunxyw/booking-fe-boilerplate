@@ -6,10 +6,7 @@
 
 // // biome-ignore lint/nursery/noRestrictedImports: we need to import the original `Link` component
 import { Link as RawI18nLink } from "@/libs/i18nNavigation";
-import type { Route } from "next";
 
-export const Link = <T extends string>(
-  props: Parameters<typeof RawI18nLink>[0] & { href: Route<T> | URL },
-) => {
+export const Link = (props: Parameters<typeof RawI18nLink>[0]) => {
   return <RawI18nLink {...props} />;
 };

@@ -1,9 +1,13 @@
 "use client";
 
 import errorImage from "@/assets/error/generic_error.svg";
-import { UserFriendlyError } from "@/components/UserFriendlyError";
+import {
+  UserFriendlyError,
+  UserFriendlyErrorControl,
+} from "@/components/UserFriendlyError";
 import { theme } from "@/styles/theme";
 import { MantineProvider } from "@mantine/core";
+import { useRouter } from "next/navigation";
 
 export default function GlobalErrorPage({
   error,
@@ -12,6 +16,8 @@ export default function GlobalErrorPage({
   error: Error & { digest?: string };
   params: { locale: string };
 }) {
+  const router = useRouter();
+
   return (
     <html lang={locale}>
       <body>
@@ -20,7 +26,14 @@ export default function GlobalErrorPage({
             title={`Something bad just happened... (${error.digest})`}
             message="Our servers could not handle your request. Don't worry, our development team was already notified. Try refreshing the page."
             image={errorImage}
-            allowRefresh
+            control={
+              <UserFriendlyErrorControl
+                component="button"
+                onClick={() => router.refresh()}
+              >
+                Refresh the page
+              </UserFriendlyErrorControl>
+            }
           />
         </MantineProvider>
       </body>

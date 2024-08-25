@@ -24,7 +24,6 @@ const config = {
 
   experimental: {
     optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
-    typedRoutes: true,
   },
 };
 
