@@ -42,5 +42,5 @@
     "**/*.mts",
     "src/types/imports.d.ts"
   ],
-  "exclude": ["node_modules", "public/sw.js"]
+  "exclude": ["node_modules", "public/sw*.js"]
 }

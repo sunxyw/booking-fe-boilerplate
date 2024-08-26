@@ -8,7 +8,7 @@
     "defaultBranch": "main"
   },
   "files": {
-    "ignore": [".vscode/*", ".idea/*"]
+    "ignore": [".vscode/*", ".idea/*", "src/types/api-types.ts"]
   },
   "formatter": {
     "enabled": true,

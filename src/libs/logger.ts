@@ -1,10 +1,12 @@
-import pino, { type DestinationStream } from "pino";
-import pretty from "pino-pretty";
+import pino from "pino";
 
 // TODO: add integration with logging service
 
-const stream: DestinationStream = pretty({
-  colorize: true,
-});
-
-export const logger = pino({ base: undefined }, stream);
+export const logger = pino(
+  {
+    browser: {
+      asObject: true,
+    },
+  },
+  // stream,
+);
