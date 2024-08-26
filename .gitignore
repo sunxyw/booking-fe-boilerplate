@@ -148,3 +148,6 @@ next-env.d.ts
 
 *storybook.log
 test-results
+
+public/sw*
+public/swe*

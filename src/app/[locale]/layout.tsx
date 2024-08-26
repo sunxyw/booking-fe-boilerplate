@@ -1,5 +1,5 @@
 import { ColorSchemeScript } from "@mantine/core";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
@@ -14,6 +14,15 @@ export const metadata: Metadata = {
   title: "Boilerplate",
   description: "Just another boilerplate.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Boilerplate",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
 };
 
 export default async function LocaleLayout({

@@ -1,5 +1,6 @@
 import { fileURLToPath } from "node:url";
-import bundleAnalyzer from "@next/bundle-analyzer";
+import createBundleAnalyzer from "@next/bundle-analyzer";
+import createSerwist from "@serwist/next";
 import createJiti from "jiti";
 import createNextIntlPlugin from "next-intl/plugin";
 
@@ -13,8 +14,17 @@ jiti("./src/config/Env.ts");
 
 const withNextIntl = createNextIntlPlugin("./src/libs/i18n.ts");
 
-const withBundleAnalyzer = bundleAnalyzer({
+const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
+});
+
+const withSerwist = createSerwist({
+  cacheOnNavigation: true,
+  swSrc: "./src/service-worker.ts",
+  swDest: "./public/sw.js",
+  additionalPrecacheEntries: [
+    { url: "/~offline", revision: crypto.randomUUID() },
+  ],
 });
 
 /** @type {import("next").NextConfig} */
@@ -27,4 +37,4 @@ const config = {
   },
 };
 
-export default withBundleAnalyzer(withNextIntl(config));
+export default withBundleAnalyzer(withSerwist(withNextIntl(config)));

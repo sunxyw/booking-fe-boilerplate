@@ -15,7 +15,7 @@
     "checkJs": true,
 
     /* Bundled projects */
-    "lib": ["dom", "dom.iterable", "ES2022"],
+    "lib": ["dom", "dom.iterable", "ES2022", "WebWorker"],
     "noEmit": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -23,7 +23,7 @@
     "plugins": [{ "name": "next" }],
 
     /* Type Checking */
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "@serwist/next/typings"],
     "incremental": true,
 
     /* Path Aliases */
@@ -42,5 +42,5 @@
     "**/*.mts",
     "src/types/imports.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "public/sw.js"]
 }
