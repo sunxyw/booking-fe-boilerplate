@@ -58,7 +58,6 @@ runs:
       shell: bash
 
     - run: pnpm build-stats
-      if: ${{ inputs.uploadAnalyzerArtifacts == 'yes' }}
       shell: bash
 
     - run: /bin/bash -c "${{ inputs.afterBuild }}"

@@ -2,22 +2,27 @@
   "name": "booking-fe-boilerplate",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "build-stats": "cross-env ANALYZE=true pnpm build",
-    "start": "next start",
-    "lint": "biome check",
-    "format": "biome check --write --unsafe",
-    "check-types": "tsc --noEmit --pretty",
-    "test": "vitest run",
-    "test:e2e": "playwright test",
-    "commit": "cz",
-    "preinstall": "npx only-allow pnpm"
-  },
   "engines": {
     "node": ">=22",
     "pnpm": ">=9"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "scripts": {
+    "build": "next build",
+    "build-stats": "cross-env ANALYZE=true pnpm build",
+    "check-types": "tsc --noEmit --pretty",
+    "commit": "cz",
+    "dev": "next dev",
+    "format": "biome check --write --unsafe",
+    "lint": "biome check",
+    "preinstall": "npx only-allow pnpm",
+    "start": "next start",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
   },
   "packageManager": "pnpm@9.8.0",
   "dependencies": {
@@ -83,6 +88,7 @@
     "cross-env": "^7.0.3",
     "husky": "^9.1.5",
     "jsdom": "^24.1.1",
+    "lefthook": "^1.7.15",
     "lint-staged": "^15.2.9",
     "openapi-typescript": "^7.3.0",
     "postcss": "^8.4.41",
@@ -93,10 +99,5 @@
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^2.0.5",
     "vitest-fail-on-console": "^0.7.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
   }
 }
